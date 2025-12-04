@@ -1,0 +1,227 @@
+.project-card{
+    display: flex;
+    
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin-bottom: 50px;
+    padding: 10px;
+    
+    
+}
+.project-image img{
+  width: 850px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.project-details {
+  width: 700px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.project-card h3,
+.project-card p {
+    text-align: center;
+}
+.project-card p{
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+.project-card h3{
+    color: #00bfff;
+    font-size: 28px;
+    font-family: "Nova Cut", sans-serif;
+}
+.project-details {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.project-details:hover {
+    box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
+} 
+/* From Uiverse.io by aguerquin */ 
+.button-icon {
+    display: flex;
+    border: 2px #fff solid;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+  }
+  
+  .icon {
+    background-color: #fff;
+    padding: 10px 10px 5px 10px;
+  }
+  
+  .icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .cube {
+    transition: all 0.4s;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 20px;
+  }
+  
+  .button-icon:hover {
+    border-color: #66D2CE;
+  }
+  
+  .button-icon:hover .cube {
+    transform: rotateX(90deg);
+  }
+  
+  .side {
+    position: absolute;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
+  
+  .top {
+    background: #66D2CE;
+    color: #fff;
+    transform: rotateX(-90deg) translate3d(0, 10px, 1em);
+  }
+  
+  .front {
+    background: #222229;
+    color: #fff;
+    transform: translate3d(0, 0, 1em);
+  }
+ 
+  
+  
+
+@media screen and (max-width: 1000px) {
+    .project-image img {
+        width: 500px;
+        height: 500px;
+    }
+    .project-details {
+        width: 500px;
+        height: 500px;
+    }
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 570px) {
+  .project-image img {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #fff;
+  }
+  .project-details {
+    width: 300px;
+    height: 450px;
+    padding: 10px;
+  }
+  .project-details h3{
+    font-size: 20px;
+  }
+  .project-details p{
+    font-size: 14px;
+  }
+  .project-card{
+    margin-bottom: 20px;
+    max-height: 1000px;
+    gap: 30px;
+  }
+  .cube {
+    width: 100px;
+  }
+  .cube span{
+    width: 100px;
+  }
+}
+
+.project-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.cursor-overlay {
+  width: 35vh;              /* responsive based on viewport height */
+  height: 25vh;             /* same as width → square */
+  max-width: 300px;         /* optional maximum size */
+  max-height: 300px;        /* keep it square */
+  min-width: 150px;         /* optional minimum size */
+  min-height: 150px;        /* keep it square */
+  border-radius: 30%;
+  background: rgba(0,0,0,0.3);  /* slightly darker */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  pointer-events: none;
+  transition: transform 0.1s ease;
+  backdrop-filter: blur(4px); /* subtle blur */
+  
+}
+.tools-logos img {
+  animation: swing 2s ease-in-out infinite;
+  transform-origin: bottom center; /* makes it swing like hanging */
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+.toolName{
+  font-family: "Nova Cut", sans-serif;
+}
+.cursor-overlay .tools-logos {
+  display: flex;
+  flex-wrap: wrap;       /* wrap multiple tools */
+  justify-content: center;
+  gap: 8px;
+}
+
+.cursor-overlay .tools-logos img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(1.2);
+}
+.toolName {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 400px) {
+  .cursor-overlay{
+    display: none;
+  }
+}
+
+
+

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding: 10rem;
+    min-width: 320px;
+    
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 70px;
+    /* overflow-x: hidden; */
+}
+
+@media screen and (min-width: 1300px) {
+  .sticky-container {
+    position: sticky;
+    top: 70px;
+    z-index: 0;
+    transition: transform 0.5s ease;
+  }
+
+  .sticky-container.unlocked {
+    position: relative;
+    transform: translateY(-10px);
+  }
+}
+@media screen and (max-width: 401px){
+  body{
+    background-color: black;
+  }
+}
+
+/* Inverted theme */
+
+
+/* Optional: cursor pointer for all hang icons */
+/* .hang-icon {
+  cursor: pointer;
+} */
+ #root {
+  overflow-x: clip; /* instead of hidden */
+}
+#root {
+  z-index: 1 !important; 
+  pointer-events: auto !important;  
+}
+
+
+
+
+
+

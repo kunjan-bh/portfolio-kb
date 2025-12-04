@@ -1,0 +1,120 @@
+.rope-container {
+  position: fixed;
+  left: 90px;
+
+  /* Set top to where you want the rope to start */
+  top: 30%;          /* start 30% from top of viewport */
+  
+  height: 40%;       /* rope spans 40% of viewport height */
+  
+  display: flex;
+  align-items: flex-start;  /* start rope at top of container */
+  justify-content: center;
+  z-index: 1101;
+}
+.hang-icon a{
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  position: relative;  /* needed for tooltip positioning */
+}
+
+.hang-icon:hover {
+  transform: scale(1.2);
+  background-color: #eee;
+}
+
+/* Tooltip */
+.hang-icon::after {
+  content: attr(data-tooltip); /* text from attribute */
+  position: absolute;
+  white-space: nowrap;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(10px); /* slide to right */
+  top: 50%;
+  left: 100%;  /* to the right of icon */
+  transform: translateY(-50%) translateX(10px);
+}
+
+/* Show tooltip on hover */
+.hang-icon:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+
+.rope {
+  width: 1.5px;
+  height: 100%;
+  background-color: white;
+  border-radius: 2px;
+  position: relative;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.hang-icons{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hang-icon{
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hang-icon:hover {
+  transform: scale(1.2);
+  background-color: #eee;
+}
+
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  color: #333;
+}
+@media (max-width: 1350px){
+.rope-container {
+  left: 70px;
+}
+}
+@media (max-width: 1000px){
+.rope-container {
+  left: 40px;
+}
+
+}
+@media (max-width: 700px){
+.rope-container {
+  display: none;
+}
+
+}
+
+

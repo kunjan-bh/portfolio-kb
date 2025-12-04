@@ -1,0 +1,93 @@
+
+.skills-container {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 50px;
+    overflow-x: hidden;
+}
+
+.skills {
+    padding: 20px;
+}
+
+.skills h2 span {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.skills h2 span:hover {
+  transform: scale(1.5); /* Makes the letter grow */
+}
+
+.skills h2 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.skills h3{
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+}
+
+.skill img {
+    width: 50px;
+    height: 50px;
+}
+
+.skill p {
+    margin-top: 5px;
+    font-size: 1em;
+    color: #ffffff;
+}
+.icon-large{
+    font-size: 3em;
+}
+@media screen and (max-width: 920px) {
+    .skills-container {
+        padding: 30px 5%;
+    }
+    .skills-container h2 {
+        font-size: 35px;
+    }
+    .skills-container h3 {
+        font-size: 25px;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+
+    .skills-container h2 {
+        font-size: 30px;
+    }
+    .skills-container h3 {
+        font-size: 20px;
+        color: aqua;
+    }
+    
+}
+
