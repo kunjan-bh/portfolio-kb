@@ -61,8 +61,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Portrait image */}
-      <div className="hero-image" data-aos="fade-left">
+      {/* Portrait image — CSS animation only, no AOS (AOS waits for scroll, image would be invisible on load) */}
+      <div className="hero-image hero-image--animate">
         <div className="hero-image-container">
           <img src="/me5.png" alt="Kunjan Bhatt" />
         </div>
