@@ -1,104 +1,96 @@
-import React, { useEffect, useState } from "react";
-// import "./loader.css";
+import React, { useEffect, useState, useRef } from "react";
+import "../component-css/Loader.css";
 
-export default function Loader({ duration = 3500, onFinish }) {
+export default function Loader({ duration = 3200 }) {
   const [progress, setProgress] = useState(0);
-  const [done, setDone] = useState(false);
+  const [exiting, setExiting] = useState(false);
+  const rafRef = useRef(null);
 
   useEffect(() => {
     const start = performance.now();
 
     const animate = (time) => {
       const elapsed = time - start;
-      const percent = Math.min((elapsed / duration) * 100, 100);
-      setProgress(percent);
+      const pct = Math.min((elapsed / duration) * 100, 100);
+      setProgress(pct);
 
-      if (percent < 100) {
-        requestAnimationFrame(animate);
+      if (pct < 100) {
+        rafRef.current = requestAnimationFrame(animate);
       } else {
-        setTimeout(() => {
-          setDone(true);
-          setTimeout(() => {
-            if (onFinish) onFinish();
-          }, 1500);
-        }, 400);
+        // slight pause, then trigger exit fade
+        setTimeout(() => setExiting(true), 300);
       }
     };
 
-    requestAnimationFrame(animate);
-  }, [duration, onFinish]);
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [duration]);
 
-  const getWavePath = (progress) => {
-    const width = 1400;
-    const height = 400;
+  /* Water-wave mask path — rises from bottom as progress increases */
+  const wavePath = (() => {
+    const W = 1000;
+    const H = 260;
+    const baseY = H - (progress / 100) * H;
+    const t = Date.now() / 220;
 
-    // Base water level rising with progress
-    const baseLevel = height - (progress / 100) * height;
-
-    const time = Date.now() / 200; // continuous time
-
-    let path = `M0 ${baseLevel}`;
-
-    for (let x = 0; x <= width; x += 5) {
-      // Multiple sine waves combined
-      const y =
-        baseLevel + 
-        Math.sin(x * 0.025 + time * 1) * 20 +  // long, big smooth wave (like a C)
-        Math.sin(x * 0.1 + time * 1) * 1;     // faster small ripples
-
-      path += ` L${x} ${y}`;
+    let d = `M0 ${baseY}`;
+    for (let x = 0; x <= W; x += 6) {
+      const y = baseY
+        + Math.sin(x * 0.022 + t) * 14
+        + Math.sin(x * 0.09  + t * 1.3) * 5;
+      d += ` L${x} ${y}`;
     }
-
-    path += ` L${width} ${height} L0 ${height} Z`;
-    return path;
-  };
-
+    d += ` L${W} ${H} L0 ${H} Z`;
+    return d;
+  })();
 
   return (
-    <div className="loader-container">
-      <div className={`loader-content ${done ? "zoom-in" : ""}`}>
-        {/* Main text SVG */}
+    <div className={`loader-container${exiting ? " loader-exit" : ""}`}>
+      <div className="loader-content">
         <svg
           className="water-text"
-          viewBox="0 0 1400 400"
+          viewBox="0 0 1000 260"
           preserveAspectRatio="xMidYMid meet"
         >
           <defs>
-            <mask id="water-mask">
-              <rect width="1400" height="400" fill="black" />
-              <path d={getWavePath(progress)} fill="white" />
+            <mask id="wm">
+              <rect width="1000" height="260" fill="black" />
+              <path d={wavePath} fill="white" />
             </mask>
           </defs>
 
-          {/* Grey text */}
+          {/* dim base text */}
           <text
-            x="50%"
-            y="40%"
-            dy=".35em"
+            x="50%" y="62%"
             textAnchor="middle"
-            fontFamily="'Acme', sans-serif"
-            fontSize="200"
-            fontWeight="900"
-            fill="#555555"
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="168"
+            fontWeight="600"
+            letterSpacing="-2"
+            fill="rgba(232,227,220,0.18)"
           >
-            Kunjan B.
+            KUNJAN
           </text>
 
-          {/* White water-revealed text */}
+          {/* yellow water-revealed text */}
           <text
-            x="50%"
-            y="40%"
-            dy=".35em"
+            x="50%" y="62%"
             textAnchor="middle"
-            fontFamily="'A', sans-serif"
-            fontSize="200"
-            fontWeight="900"
-            fill="white"
-            mask="url(#water-mask)"
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="168"
+            fontWeight="600"
+            letterSpacing="-2"
+            fill="#ffcc00"
+            mask="url(#wm)"
           >
-            Kunjan B.
+            KUNJAN
           </text>
         </svg>
+
+        {/* thin yellow progress bar */}
+        <div className="loader-bar-track">
+          <div className="loader-bar-fill" style={{ width: `${progress}%` }} />
+        </div>
       </div>
     </div>
   );

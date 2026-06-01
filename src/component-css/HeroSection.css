@@ -194,8 +194,6 @@
     width: 100%;
     display: block;
     filter: contrast(1.05) brightness(0.92);
-    mask-image: linear-gradient(to top, transparent 0%, black 30%);
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%);
 }
 
 /* ═══════════════════════════════════════════
