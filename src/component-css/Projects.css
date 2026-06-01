@@ -1,72 +1,50 @@
-.projects-container{
+.projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 50px;
-    color: yellow;
+    padding: 80px 50px;
     z-index: 1000;
-    position: relative; /* ✅ add this */
+    position: relative;
 }
-.projects-grid{
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    width: 100%;
+
+.projects-container h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: #ffcc00;
+    margin-bottom: 52px;
+    letter-spacing: -0.01em;
 }
+
+#projects h2 span {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+#projects h2 span:hover { transform: scale(1.5); }
+
+.projects-grid { width: 100%; }
+
 .projects-grid .project-card:nth-child(even) {
     flex-direction: row-reverse;
 }
-#projects h2 span {
-  display: inline-block;
-  transition: transform 0.15s ease;
-}
 
-#projects h2 span:hover {
-  transform: scale(1.5); /* Makes the letter grow */
+@media (max-width: 1350px) {
+    .projects-container { max-width: 1000px; padding: 60px 10px; }
+    .project-image img { max-width: 500px; }
 }
-
-.projects-container h2{
-    margin-bottom: 50px;
+@media (max-width: 1150px) {
+    .projects-container { max-width: 800px; }
 }
-@media (max-width: 1350px){
-    .projects-container{
-        max-width: 1000px;
-        padding: 10px 10px;
-    }
-    .project-image img{
-        max-width: 500px;
-    }
-}
-@media (max-width: 1150px){
-    .projects-container{
-        max-width: 800px;
-        padding: 10px 10px;
-    }
-    .project-image img{
-        max-width: 400px;
-    }
-}
-
 @media screen and (max-width: 1000px) {
-    .projects-grid .project-card:nth-child(even) {
-        flex-direction: column;
-    }
-    .projects-grid .project-card {
-        flex-direction: column;
-    }
-    .projects-container h2{
-        font-size: 35px;
-    }
-    .project-image img{
-        max-width: 600px;
-    }
+    .projects-grid .project-card:nth-child(even),
+    .projects-grid .project-card { flex-direction: column; }
+    .projects-container h2 { font-size: 2.2rem; }
+    .project-image img { max-width: 600px; }
 }
 @media screen and (max-width: 500px) {
-    .projects-container h2{
-        font-size: 30px;
-    }
+    .projects-container h2 { font-size: 1.9rem; }
+    .projects-container { padding: 50px 10px; }
 }
-

@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { motion } from 'framer-motion'; // 👈 Import this
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const publications = [
   {
@@ -24,9 +22,9 @@ const publications = [
   },
   {
     id: '3',
-    title: 'Optimizing text-based image retrival algorithms on Unsplash(DRAFT)',
+    title: 'Optimizing Text-Based Image Retrieval Algorithms on Unsplash (Draft)',
     description:
-      "This report explores how to improve image search relevance using OpenAI's CLIP model, particularly for abstract or vague text queries that traditional keyword-based search often fails to handle effectively.",
+      "Explores how to improve image search relevance using OpenAI's CLIP model, particularly for abstract or vague text queries that traditional keyword-based search often fails to handle.",
     authors: 'Kunjan Bhatt',
     link: 'https://github.com/kunjan-bh/image-retrieval-algorithms-on-Unsplash/blob/main/Image_retrival_algorithm_OpenAi_Clip.pdf',
     date: 'Yet to be published',
@@ -34,25 +32,32 @@ const publications = [
 ];
 
 const Publication = () => {
-
   return (
-    <div id="publication" className="publication-container relative">
-      <h2 className="sticky top-40">
-        <span>P</span><span>u</span><span>b</span><span>l</span><span>i</span>
-        <span>c</span><span>a</span><span>t</span><span>i</span><span>o</span>
-        <span>n</span><span>s</span>
-      </h2>
+    <div id="publication" className="publication-container">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        viewport={{ once: true, margin: '-80px' }}
+      >
+        <div className="section-label">— 06 &nbsp; Research</div>
+        <h2>
+          <span>P</span><span>u</span><span>b</span><span>l</span><span>i</span>
+          <span>c</span><span>a</span><span>t</span><span>i</span><span>o</span>
+          <span>n</span><span>s</span>
+        </h2>
+      </motion.div>
 
       {publications.map((pub, index) => (
         <motion.div
           key={index}
-          className="publication-content sticky top-70 h-[400px] max-h-[600px] bg-[#1a1a1a] border-t border-white rounded-[40px] text-white"
-          // initial={{ opacity: 0, y: 50 }}
+          className="publication-content"
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.6, delay: index * 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }}
+          viewport={{ once: true, margin: '-50px' }}
         >
-          <div className="pub-align1"><span>#{pub.id}</span></div>
+          <div className="pub-align1">#{pub.id}</div>
           <div className="pub-align2">
             <div className="publication-text">
               <h3>{pub.title}</h3>

@@ -1,86 +1,98 @@
 .about1-container {
     font-family: 'Poppins', sans-serif;
-    background: #1a1a1a;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
+    background: var(--bg, #080808);
+    color: var(--text, #e8e3dc);
     z-index: 1000;
-    position: relative; /* ✅ add this */
+    position: relative;
 }
+
 .about {
     text-align: center;
-    padding: 50px 0px;
-    max-width: 1200px;
+    padding: 80px 10%;
+    max-width: 1300px;
     margin: auto;
 }
 
-h2 {
-    font-size: 3rem;
+.about1-container h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
     color: #ffcc00;
     margin-bottom: 20px;
+    letter-spacing: -0.01em;
 }
 
 .intro-text {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: #ccc;
-    padding: 0px 10%;
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 52px;
+    color: #888680;
+    padding: 0 12%;
+    line-height: 1.85;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .about-card {
-    background: #161b22;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+    background: var(--bg-card, #111318);
+    padding: 36px 28px;
+    border-top: 2px solid transparent;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-align: left;
+}
+
+.about-card-icon {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
 }
 
 .about-card h3 {
-    color: #58a6ff;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #e8e3dc;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
 }
 
 .about-card p {
-    font-size: 16px;
-    color: #bbb;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    color: #666460;
+    line-height: 1.8;
+    font-weight: 300;
 }
 
 .about-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    background: #161b22;
+    transform: translateY(-3px);
 }
+
 @media screen and (max-width: 900px) {
-    .intro-text {
-        font-size: 16px;
-        padding: 0px 5%;
-    }
+    .about { padding: 60px 5%; }
+    .intro-text { padding: 0 5%; font-size: 0.9rem; }
     .about-grid {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        border: none;
+        gap: 12px;
     }
     .about-card {
-        max-width: 80%;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        border-top-width: 2px;
     }
-    .about1-container h2{
-        font-size: 35px;
-    }
-    
+    .about1-container h2 { font-size: 2.2rem; }
 }
+
 @media screen and (max-width: 400px) {
-
-    .about1-container h2{
-        font-size: 30px;
-    }
-    
+    .about1-container h2 { font-size: 1.9rem; }
+    .about { padding: 50px 5%; }
 }
-

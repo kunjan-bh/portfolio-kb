@@ -1,93 +1,78 @@
-
 .skills-container {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 50px;
+    padding: 80px 6%;
     overflow-x: hidden;
 }
 
-.skills {
-    padding: 20px;
+.skills h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 52px;
+    color: #ffcc00;
+    letter-spacing: -0.01em;
 }
 
 .skills h2 span {
-  display: inline-block;
-  transition: transform 0.15s ease;
+    display: inline-block;
+    transition: transform 0.15s ease;
 }
+.skills h2 span:hover { transform: scale(1.5); }
 
-.skills h2 span:hover {
-  transform: scale(1.5); /* Makes the letter grow */
-}
+.category { margin-bottom: 48px; }
 
-.skills h2 {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #ffcc00;
-}
-
-.category {
-    margin-bottom: 30px;
-}
-
-.skills h3{
-    color: #ffffff;
-    font-size: 2em;
-    margin-bottom: 20px;
+.skills h3 {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 28px;
 }
 
 .icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-
+    gap: 14px;
 }
 
 .skill {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
-    text-align: center;
+    width: 86px;
+    padding: 16px 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: default;
+}
+.skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.15);
+    border-color: rgba(255, 204, 0, 0.3);
 }
 
-.skill img {
-    width: 50px;
-    height: 50px;
-}
+.skill img { width: 40px; height: 40px; object-fit: contain; }
+.icon-large { font-size: 2.4rem; }
 
 .skill p {
-    margin-top: 5px;
-    font-size: 1em;
-    color: #ffffff;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: #777;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
 }
-.icon-large{
-    font-size: 3em;
-}
+
 @media screen and (max-width: 920px) {
-    .skills-container {
-        padding: 30px 5%;
-    }
-    .skills-container h2 {
-        font-size: 35px;
-    }
-    .skills-container h3 {
-        font-size: 25px;
-    }
-    
+    .skills-container { padding: 60px 5%; }
+    .skills h2 { font-size: 2.2rem; }
 }
 @media screen and (max-width: 400px) {
-
-    .skills-container h2 {
-        font-size: 30px;
-    }
-    .skills-container h3 {
-        font-size: 20px;
-        color: aqua;
-    }
-    
+    .skills h2 { font-size: 1.9rem; }
 }
-

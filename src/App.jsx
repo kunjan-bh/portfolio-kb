@@ -14,6 +14,7 @@ import FloatingRope from './components/FloatingRope'
 import Publication from './components/Publication'
 import Awards from './components/Awards'
 import Loader from './components/Loader'
+import Experience from './components/Experience'
 
 
 const App = () => {
@@ -65,6 +66,7 @@ const App = () => {
       </div>
 
       <AboutMe />
+      <Experience />
       <GlitterSection>
         <SkillsSet />
       </GlitterSection>

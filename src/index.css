@@ -1,57 +1,84 @@
 @import "tailwindcss";
-html {
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
-    scroll-padding: 10rem;
-    min-width: 320px;
-    
 }
+
+:root {
+    --bg:        #080808;
+    --bg-2:      #0f0f0f;
+    --bg-card:   #111318;
+    --text:      #e8e3dc;
+    --text-muted:#888680;
+    --text-dim:  #444240;
+    --yellow:    #ffcc00;
+    --blue:      #58a6ff;
+    --cyan:      #00bcd4;
+    --green:     #5db542;
+    --border:    rgba(255, 255, 255, 0.07);
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 5rem;
+    min-width: 320px;
+    font-size: 16px;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
     padding-top: 70px;
-    /* overflow-x: hidden; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @media screen and (min-width: 1300px) {
-  .sticky-container {
-    position: sticky;
-    top: 70px;
-    z-index: 0;
-    transition: transform 0.5s ease;
-  }
-
-  .sticky-container.unlocked {
-    position: relative;
-    transform: translateY(-10px);
-  }
-}
-@media screen and (max-width: 401px){
-  body{
-    background-color: black;
-  }
+    .sticky-container {
+        position: sticky;
+        top: 70px;
+        z-index: 0;
+        transition: transform 0.5s ease;
+    }
+    .sticky-container.unlocked {
+        position: relative;
+        transform: translateY(-10px);
+    }
 }
 
-/* Inverted theme */
-
-
-/* Optional: cursor pointer for all hang icons */
-/* .hang-icon {
-  cursor: pointer;
-} */
- #root {
-  overflow-x: clip; /* instead of hidden */
+@media screen and (max-width: 401px) {
+    body { background-color: #050505; }
 }
+
 #root {
-  z-index: 1 !important; 
-  pointer-events: auto !important;  
+    overflow-x: clip;
+    z-index: 1 !important;
+    pointer-events: auto !important;
 }
 
+/* ── Section eyebrow label ──────────────────────────────── */
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-family: var(--sans);
+    font-weight: 400;
+}
 
-
-
-
-
+.section-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--yellow);
+}

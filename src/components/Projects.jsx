@@ -13,6 +13,7 @@ const Projects = () => {
   return (
     <div id="projects" className='projects-container'>
       
+        <div className="section-label">— 05 &nbsp; Selected Work</div>
         <h2 data-aos="fade-up"><span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span></h2>
         <div className="projects-grid">
            

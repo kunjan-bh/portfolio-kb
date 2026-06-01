@@ -36,6 +36,7 @@ const Awards = () => {
 
   return (
     <div id="awards" className="awards-container">
+      <div className="section-label">— 07 &nbsp; Recognition</div>
       <h2>Achievements & Recognitions</h2>
 
       <div className="year-selector">
